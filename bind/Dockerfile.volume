@@ -1,0 +1,4 @@
+FROM internetsystemsconsortium/bind9:9.18
+
+ENTRYPOINT ["/usr/sbin/named"]
+CMD ["-g", "-c", "/etc/bind/named.conf", "-u", "bind"]

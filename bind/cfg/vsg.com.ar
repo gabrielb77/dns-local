@@ -1,0 +1,135 @@
+$ORIGIN .
+$TTL 86400	; 1 day
+vsg.com.ar		IN SOA	dnsserver.vsg.com.ar. hostmaster.vsg.com.ar. (
+				2013130490 ; serial
+				21600      ; refresh (6 hours)
+				3600       ; retry (1 hour)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS	dnsserver.vsg.com.ar.
+			MX	10 mailserver.vsg.com.ar.
+$ORIGIN vsg.com.ar.
+$TTL 3600	; 1 hour
+adserver		A	192.168.0.209
+$TTL 1800	; 30 minutes
+ampache			A	192.168.0.222
+$TTL 3600	; 1 hour
+android-1405b1ce24201760 A	192.168.0.112
+			TXT	"31d4697914ccaece206c62916593274e11"
+android-5017fed6dc85db77 A	192.168.0.164
+			TXT	"00a8feb98a11d02a7febb7b96b3d814d4d"
+$TTL 1800	; 30 minutes
+android-59ec077e46ce2663 A	192.168.0.220
+			TXT	"31290c6e6af73cbd2c398c42ea9401b600"
+android-65c3cb15ab21df56 A	192.168.0.219
+			TXT	"318686dca81c37bfda3520b09f628079c0"
+$TTL 3600	; 1 hour
+android-8399fbbf9489d7bc A	192.168.0.213
+$TTL 1800	; 30 minutes
+			TXT	"002a9a34e55c908f0c5ae75cc02ec3da34"
+android-99efd8afffb9dc74 A	192.168.0.221
+			TXT	"316772bfad9217525ca192c8bd51dfa198"
+$TTL 3600	; 1 hour
+android-a0392d8ac940f033 A	192.168.0.227
+			TXT	"31d1e9a8c726a4a62105269ae41bece392"
+android-aca39a052c7eff3c A	192.168.0.118
+			TXT	"00e73b0482123fc1fc955f0a5dca0a885f"
+android-b39502a2bdc941	A	192.168.0.164
+			TXT	"00a8feb98a11d02a7febb7b96b3d814d4d"
+android-cf7169b7e03deca5 A	192.168.0.213
+			TXT	"002a9a34e55c908f0c5ae75cc02ec3da34"
+$TTL 1800	; 30 minutes
+android-e3eb3ed5ecc7fe14 A	192.168.0.218
+			TXT	"00680c6a205e089ba9adfa52b66f9ce55a"
+apps			A	192.168.0.222
+$TTL 3600	; 1 hour
+backupserver		A	192.168.0.210
+$TTL 1800	; 30 minutes
+			TXT	"007c00afecbc18982f2c0856707923a663"
+$TTL 3600	; 1 hour
+dbserver		A	192.168.0.204
+$TTL 1800	; 30 minutes
+			TXT	"00b299b8530ed0b834e8d6122a756e3adf"
+$TTL 3600	; 1 hour
+debian			A	192.168.0.223
+$TTL 1800	; 30 minutes
+			TXT	"00dd451224a305c892fcc60be3525148ff"
+$TTL 3600	; 1 hour
+dmzserver		A	192.168.0.206
+$TTL 1800	; 30 minutes
+			TXT	"0000f675b905032cfbbd9e730cfcc672dc"
+$TTL 86400	; 1 day
+dns1			CNAME	dnsserver
+dnsserver		A	192.168.0.211
+$TTL 1800	; 30 minutes
+elementary		A	192.168.0.223
+			TXT	"00dd451224a305c892fcc60be3525148ff"
+$TTL 86400	; 1 day
+gateway			A	192.168.0.1
+$TTL 1800	; 30 minutes
+gblog			A	192.168.0.222
+$TTL 3600	; 1 hour
+idsserver		A	192.168.0.216
+$TTL 1800	; 30 minutes
+			TXT	"00277a541aa4edf8b71e5e32809070fef4"
+kali			A	192.168.0.214
+			TXT	"00ce171243940c0d3be9c079f5bf08e87a"
+lachotta		A	192.168.0.222
+lvx8			A	192.168.0.200
+$TTL 86400	; 1 day
+mail			CNAME	mailserver
+mailserver		A	192.168.0.201
+$TTL 3600	; 1 hour
+mediacenter		A	192.168.0.208
+$TTL 1800	; 30 minutes
+			TXT	"00420bd82de76e8c015229ec4c7b557662"
+micdn			A	192.168.0.222
+Microknoppix		A	192.168.0.214
+			TXT	"00ad936261e9653870a5697ae02f7fe5df"
+			TXT	"00ce171243940c0d3be9c079f5bf08e87a"
+$TTL 3600	; 1 hour
+monitor			A	192.168.0.225
+			TXT	"00ad936261e9653870a5697ae02f7fe5df"
+$TTL 1800	; 30 minutes
+moodle			A	192.168.0.222
+newwebserver		A	192.168.0.203
+			TXT	"0053b0e01739762485e8e96236d1e17b9e"
+NPI35F1D6		A	192.168.0.213
+			TXT	"00e2542e9a2f5d9acbf2675ac61c821396"
+$TTL 3600	; 1 hour
+observium		A	192.168.0.225
+pkiserver		A	192.168.0.205
+$TTL 1800	; 30 minutes
+			TXT	"00fc4af9faa3dee487eaf0dee2b44e672d"
+prestashop		A	192.168.0.222
+$TTL 3600	; 1 hour
+proxyserver		A	192.168.0.211
+$TTL 1800	; 30 minutes
+			TXT	"00b93c5d693034b104c6736f4ee97a2f31"
+puppypc22024		A	192.168.0.214
+			TXT	"00ce171243940c0d3be9c079f5bf08e87a"
+puppypc5129		A	192.168.0.223
+			TXT	"00dd451224a305c892fcc60be3525148ff"
+$TTL 3600	; 1 hour
+ramjam			A	192.168.0.223
+			TXT	"00dd451224a305c892fcc60be3525148ff"
+ramjam-debian		A	192.168.0.223
+			TXT	"00dd451224a305c892fcc60be3525148ff"
+tv1cfc964f9731		A	192.168.0.215
+			TXT	"00025680d9123c24f04567934f79242ca6"
+$TTL 1800	; 30 minutes
+ubuntu			A	192.168.0.214
+			TXT	"00ce171243940c0d3be9c079f5bf08e87a"
+$TTL 3600	; 1 hour
+vpnserver		A	192.168.0.217
+$TTL 1800	; 30 minutes
+			TXT	"00c7ec22206006c760187a715b87fefda0"
+webserver		A	192.168.0.203
+			TXT	"0053b0e01739762485e8e96236d1e17b9e"
+$TTL 3600	; 1 hour
+webserver2		A	192.168.0.222
+$TTL 1800	; 30 minutes
+			TXT	"00f6a5f26272a8d67f81850370a55e4eb6"
+www			A	192.168.0.222
+

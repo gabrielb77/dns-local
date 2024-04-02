@@ -1,0 +1,80 @@
+options {
+	directory "/var/cache/bind";
+	version "No way...";
+	listen-on port 53 { any; };
+
+	// If there is a firewall between you and nameservers you want
+	// to talk to, you may need to fix the firewall to allow multiple
+	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+	// If your ISP provided one or more IP addresses for stable 
+	// nameservers, you probably want to use them as forwarders.  
+	// Uncomment the following block, and insert the addresses replacing 
+	// the all-0's placeholder.
+
+	forwarders {
+		8.8.8.8;
+		8.8.4.4;
+		10.6.1.3;
+		10.6.1.5;
+	};
+
+	//========================================================================
+	// If BIND logs error messages about the root key being expired,
+	// you will need to update your keys.  See https://www.isc.org/bind-keys
+	//========================================================================
+	dnssec-validation no;
+
+	//listen-on-v6 { any; };
+
+	allow-recursion { any; };
+	allow-query { any; };
+	allow-query-cache { any; };
+
+};
+
+controls {
+	inet 127.0.0.1 allow { localhost; } keys { rndc-key; };
+};
+
+key rndc-key {
+	algorithm hmac-md5;
+	secret "hyZ8gd0idL652uhlhu7WQA==";
+};
+
+logging {
+	category default { default_stderr; };
+	category unmatched { null; };
+
+	channel default_stderr {
+		stderr;
+		severity debug;
+	};
+
+	channel null {
+		null;
+	};
+};
+
+zone "gb.local" {
+    type master;
+    file "/etc/bind/gb.local.zone";
+};
+
+zone "gb.com.ar" {
+    type forward;
+    forward only;
+    forwarders { 192.168.0.100; };
+};
+
+zone "vxlan.net" {
+    type master;
+    file "/etc/bind/vxlan.net.zone";
+};
+
+zone "1.1.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/1.1.10.in-addr.arpa";
+    allow-update { key rndc-key; };
+};
+

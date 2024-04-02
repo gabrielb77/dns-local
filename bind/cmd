@@ -1,0 +1,37 @@
+# docker run \
+#         --name=bind9 \
+#         --restart=always \
+#         --publish 53:53/udp \
+#         --publish 53:53/tcp \
+#         --publish 127.0.0.1:953:953/tcp \
+#         --volume /etc/bind \
+#         --volume /var/cache/bind \
+#         --volume /var/lib/bind \
+#         --volume /var/log \
+#         internetsystemsconsortium/bind9:9.19
+
+docker volume create bind9-var-log
+docker volume create bind9-etc-bind
+docker volume create bind9-var-cache-bind
+docker volume create bind9-var-lib-bind
+
+dev=$(ip -json route sh default | jq -r '.[].dev')
+ip=$(ip -json add sho dev ${dev} | jq -r '.[].addr_info[] | select(.label == "'${dev}'") .local')
+
+docker run -idt --name=bind9 --restart=always --publish ${ip}:53:53/udp --publish ${ip}:53:53/tcp --publish 127.0.0.1:953:953/tcp --volume bind9-etc-bind:/etc/bind --volume bind9-var-cache-bind:/var/cache/bind --volume bind9-var-lib-bind:/var/lib/bind --volume bind9-var-log:/var/log internetsystemsconsortium/bind9:9.19 "/usr/sbin/named" "-g" "-c" "/etc/bind/named.conf" "-u" "bind"
+
+docker cp cfg/0.168.192 bind9:/etc/bind/
+docker cp cfg/1.1.10.in-addr.arpa bind9:/etc/bind/
+docker cp cfg/127.0.0 bind9:/etc/bind/
+docker cp cfg/bind.keys bind9:/etc/bind/
+docker cp cfg/gb.com.ar bind9:/etc/bind/
+docker cp cfg/gb.local.zone bind9:/etc/bind/
+docker cp cfg/localhost bind9:/etc/bind/
+docker cp cfg/named.conf.local bind9:/etc/bind/
+docker cp cfg/named.conf.options bind9:/etc/bind/
+docker cp cfg/rndc.key bind9:/etc/bind/
+docker cp cfg/vsg.com.ar bind9:/etc/bind/
+docker cp cfg/vxlan.net.zone bind9:/etc/bind/
+
+docker restart bind9
+

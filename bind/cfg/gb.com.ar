@@ -1,0 +1,38 @@
+$ORIGIN .
+$TTL 86400	; 1 day
+gb.com.ar		IN SOA	dnsserver.gb.com.ar. hostmaster.gb.com.ar. (
+				2013133289 ; serial
+				21600      ; refresh (6 hours)
+				3600       ; retry (1 hour)
+				604800     ; expire (1 week)
+				86400      ; minimum (1 day)
+				)
+			NS	dnsserver.gb.com.ar.
+			MX	10 mailserver.gb.com.ar.
+$ORIGIN gb.com.ar.
+
+dnsserver		A	192.168.0.100
+backupserver		A	192.168.0.108
+dbserver		A	192.168.0.109
+dmzserver		A	192.168.0.120
+gb			A	192.168.0.40
+gsv                     A       192.168.0.20
+mailserver		A	192.168.0.106
+manager			A	192.168.0.100
+mediacenter		A	192.168.0.101
+monitor			A	192.168.0.105
+pkiserver		A	192.168.0.104
+proxyserver		A	192.168.0.110
+vpnserver		A	192.168.0.128
+webserver2		A	192.168.0.19
+rocky			A	192.168.0.111
+gbueno			A	192.168.0.37
+kibana                  A       192.168.100.200
+os-dash			A	192.168.100.200
+control-plane		A	192.168.100.200
+cluster-endpoint	A	10.1.1.2
+kube-apiserver		A	192.168.100.200
+loadbalancer		A	10.10.10.254
+docker			A	192.168.0.112
+backstage-io            A       192.168.0.47
+

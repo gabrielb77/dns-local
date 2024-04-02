@@ -1,0 +1,13 @@
+$TTL 3D
+@       IN      SOA     @       root (
+                        1       ; serial
+			3600    ; refresh
+			1800    ; retry
+			604800  ; expiration
+                	3600 )  ; minimum
+
+        IN      NS      @
+        IN      A       127.0.0.1
+        IN      AAAA    ::1
+
+

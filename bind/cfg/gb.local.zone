@@ -1,0 +1,39 @@
+; gb.local
+$TTL 86400
+gb.local.		IN	SOA	ns1.gb.local. hostmaster.gb.local. (
+				2023091601		; Serial number
+				10800			; Refresh
+				3600			; Retry
+				604800			; Expire
+				86400)			; Minimum TTL
+
+			 ; Nameserver definition
+                         IN     NS      ns1.gb.local.
+                         IN     NS      ns2.gb.local.
+
+; A records definition
+gb.local.                   IN      A       172.17.0.2
+www.gb.local.               IN      A       192.168.122.109
+ns1.gb.local.               IN      A       172.17.0.2
+ns2.gb.local.               IN      A       172.17.0.2
+ingress.gb.local.           IN      A       192.168.122.109
+argo.gb.local.              IN      A       192.168.122.109
+prom.gb.local.              IN      A       192.168.122.109
+ingress.gb.local.           IN      A       192.168.122.109
+os-dash.gb.local.           IN      A       192.168.122.109
+cluster-endpoint.gb.local.  IN      A       192.168.122.109
+grafana.gb.local.           IN      A       192.168.122.109
+kibana.gb.local.            IN      A       192.168.122.109
+rollouts-demo.gb.local.     IN      A       192.168.122.109
+myweb.com.gb.local.         IN      A       192.168.122.109
+myweb2.com.gb.local.        IN      A       192.168.122.109
+myweb3.com.gb.local.        IN      A       192.168.122.109
+loadbalancer.gb.local.      IN      A       192.168.122.109
+mdm.gb.local.               IN      A       192.168.122.62
+dmzserver                   IN      A       192.168.122.163
+docker                      IN      A       192.168.122.149
+winad                       IN      A       192.168.122.90
+nodo01                      IN      A       192.168.122.237
+nodo02                      IN      A       192.168.122.20
+nodo03                      IN      A       192.168.122.37
+os                          IN      A       192.168.122.109

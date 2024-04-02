@@ -1,0 +1,96 @@
+options {
+    directory "/etc/bind";
+    pid-file "/var/run/named/named.pid";
+    statistics-file "/var/run/named/named.stats";
+    version "No way...";
+##    listen-on port 53 { any; };
+    listen-on port 53 { any; };
+##    listen-on-v6 port 53 { any; };
+##    query-source port 53;
+##    query-source-v6 port 53;
+    allow-query {
+        192.168.0.0/24;
+        172.20.0.0/16;
+        172.17.0.0/16;
+        10.1.1.0/24;
+        127.0.0.1;
+    };
+##    forwarders { 200.42.4.207; 200.49.130.44; };
+##    forwarders {181.47.248.145; 200.115.192.89; 200.115.192.28; };
+    forwarders {8.8.8.8; 8.8.4.4; };
+    forward only;
+##    max-cache-size 0;
+##    cleaning-interval 0;
+#    tkey-gssapi-keytab "/usr/local/samba/private/dns.keytab";
+};
+
+#include "/usr/local/samba/private/named.conf";
+
+controls {
+    inet 127.0.0.1 allow { localhost; } keys { rndc-key; };
+};
+
+key rndc-key {
+        algorithm hmac-md5;
+        secret "hyZ8gd0idL652uhlhu7WQA==";
+};
+
+logging {
+#    category default { default_syslog; default_debug; };
+    category default { default_stderr; };
+    category unmatched { null; };
+
+#    channel default_syslog {
+#        syslog daemon;
+##       severity info;
+#        severity debug;
+#    };
+
+#    channel default_debug {
+#        file "named.run";
+#        severity dynamic;
+#    };
+
+    channel default_stderr {
+        stderr;
+        severity debug;
+    };
+
+    channel null {
+        null;
+    };
+};
+
+#zone "." {
+#    type hint;
+#    file "root.hints";
+#};
+
+zone "localhost" {
+    type master;
+    file "/etc/bind/localhost";
+};
+
+zone "0.0.127.in-addr.arpa" {
+    type master;
+    file "/etc/bind/127.0.0";
+};
+
+zone "0.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/0.168.192";
+    allow-update { key rndc-key; };
+};
+
+zone "gb.com.ar" {
+    type master;
+    file "/etc/bind/gb.com.ar";
+    allow-update { key rndc-key; };
+};
+
+zone "vxlan.net" {
+    type master;
+    file "/etc/bind/vxlan.net";
+    allow-update { key rndc-key; };
+};
+

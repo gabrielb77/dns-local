@@ -1,0 +1,38 @@
+; vxlan.net
+$TTL 86400
+$ORIGIN vxlan.net.
+
+vxlan.net.		IN	SOA	ns1.vxlan.net. hostmaster.vxlan.net. (
+				20231008		; Serial number
+				10800			; Refresh
+				3600			; Retry
+				604800			; Expire
+				86400)			; Minimum TTL
+
+			IN	NS	ns1.vxlan.net.
+			IN	NS	ns2.vxlan.net.
+vxlan.net.		IN	A	172.17.0.2
+manager			IN	A	10.1.1.1
+loadbalancer		IN	A	10.1.1.2
+ingress			IN	A	10.1.1.2
+argo			IN	A	10.1.1.2
+prom			IN	A	10.1.1.2
+os-dash			IN	A	10.1.1.2
+cluster-endpoint	IN	A	10.1.1.2
+grafana			IN	A	10.1.1.2
+kibana			IN	A	10.1.1.2
+rollouts-demo		IN	A	10.1.1.2
+os			IN	A	10.1.1.2
+k8s-n01			IN	A	10.1.1.11
+k8s-n02			IN	A	10.1.1.12
+k8s-n03			IN	A	10.1.1.13
+k8s-n04			IN	A	10.1.1.14
+k8s-n05			IN	A	10.1.1.15
+k8s-n06			IN	A	10.1.1.16
+k8s-n07			IN	A       10.1.1.17
+k8s-n08			IN	A       10.1.1.18
+k8s-n09			IN	A       10.1.1.19
+k8s-n10			IN	A       10.1.1.20
+ns1			IN	A	172.17.0.2
+ns2			IN	A	172.17.0.2
+
